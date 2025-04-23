@@ -1,0 +1,20 @@
++----------------+-------------------+---------------+------------------+-------------------+----------------+
+|       A        |        B           |       C       |        D         |         E         |        F       |
++----------------+-------------------+---------------+------------------+-------------------+----------------+
+| Char Byte Count| Frequency Count    | Byte Length   | Frequency Buffer | Character Buffer  |  Data Buffer   |
++----------------+-------------------+---------------+------------------+-------------------+----------------+
+|    4 bytes     |     4 bytes        |     1 byte    |   <B> * <C> bytes|      <A> bytes    |    ? bytes     |
++----------------+-------------------+---------------+------------------+-------------------+----------------+
+
+A: Char Byte Count - Tổng số byte của Character Buffer
+B: Frequency Count - Tổng số lượng tần suất lưu trong Frequency Buffer
+C: Byte Length - Số byte cần thiết để lưu một tần suất
+D: Frequency Buffer - Mảng các tần suất đã serialize
+E: Character Buffer - Mảng các ký tự tương ứng đã serialize
+F: Data Buffer - Dữ liệu Huffman nén thực tế (các bit)
+
+- The character buffer and frequency buffer are sorted by frequency value (ascending).
+
+- getMaxByteLength(frequencies)
+    - Assumes the list is sorted
+    - return (frequencies[0].bit_length() + 7) // 8
